@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: zhaoyulearn
+  datasource:
+    url: jdbc:mysql://sh-cdb-6nh4rvjg.sql.tencentcdb.com:24488/zhaoyu_learn
+    username: root
+    password: Zhaoyu_Zhuiguo_01
+    druid:
+      connection-properties: config.decrypt=false
+      filter:
+        config:
+          enabled: true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.learn.zhaoyulearn.controller
+# knife4j???????????????
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
